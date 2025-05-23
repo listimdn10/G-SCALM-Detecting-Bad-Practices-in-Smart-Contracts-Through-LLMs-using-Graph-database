@@ -1,0 +1,79 @@
+vulnerable code:
+pragma solidity 0.4.24;
+
+contract ShadowingInFunctions {
+ uint n = 2;
+ uint x = 3;
+
+ function test1() constant returns (uint n) {
+ return n; 
+ }
+
+ function test2() constant returns (uint n) {
+ n = 1;
+ return n; 
+ }
+
+ function test3() constant returns (uint x) {
+ uint n = 4;
+ return n+x; 
+ }
+}
+
+
+Abstract purpose: Demonstrating variable shadowing in Solidity functions.
+
+Detail Behaviors: 
+1. The function test1 returns the value of the state variable `n`.
+2. The function test2 assigns a new value to the local variable `n` and returns it.
+3. The function test3 declares a new local variable `n`, assigns it a value of 4, and returns the sum of the local `n` and the state variable `x`.
+
+fixed code:
+pragma solidity 0.4.24;
+
+contract ShadowingInFunctions {
+    uint public n = 2; // State variable
+    uint public x = 3; // State variable
+
+    // Đổi tên biến trả về để tránh trùng với biến trạng thái
+    function test1() public view returns (uint result) {
+        return n; // Trả về biến trạng thái n
+    }
+
+    // Đổi tên biến trả về để tránh trùng với biến trạng thái
+    function test2() public view returns (uint result) {
+        result = 1; // Sử dụng biến cục bộ result thay vì n
+        return result;
+    }
+
+    // Đổi tên biến cục bộ để tránh trùng với biến trạng thái
+    function test3() public view returns (uint result) {
+        uint localN = 4; // Đổi tên biến cục bộ để tránh trùng với n
+        return localN + x; // Sử dụng biến trạng thái x
+    }
+}
+
+
+Abstract Vulnerability Description: The identified vulnerability pertains to the use of variable shadowing within smart contracts, particularly when a local variable within a function shares a name with a state variable or when inheritance structures inadvertently lead to overlapping identifiers. This creates the risk of unintended behavior, as the contract may inadvertently operate on or modify an unintended variable, leading to potential logical errors and security risks.
+
+Trigger Action: The vulnerability is triggered when a function or a derived contract uses a variable name that collides with a state variable or inherited element, resulting in the function referencing or modifying the unintended variable due to name conflicts.
+
+            Detailed Vulnerability Description: The vulnerability identified in the given code snippet is related to **Variable Shadowing**, specifically described under **SWC-119**. In Solidity, variable shadowing occurs when a local variable in a function has the same name as a state variable, or when similar issues arise in inheritance scenarios across contracts. This can lead to unexpected behaviors where code is inadvertently referencing or modifying unintended variables.
+
+In the initial code:
+- The functions in the `ShadowingInFunctions` contract utilize names for local or return variables that conflict with the names of state variables. This potentially creates confusion in the code logic and increases the risk of bugs, as the function's execution might inadvertently reference or alter the unintended, similarly-named state variable instead of the local one.
+
+This condition is exacerbated in systems with inheritance, where derived contracts might unknowingly overshadow inherited variables, leading to bugs that are difficult to trace.
+
+###
+            Solution Description: The modifications made to the original code were essential to correct the variable shadowing issue, ensuring clarity and preventing ambiguity in variable usage within the contract's logic:
+
+1. **Renaming Variables:**
+   - For instance, in the modified functions, the return variable is explicitly distinguished from the state variables. This removes any ambiguity between what data the functions are manipulating and returning.
+   - The original state variable `n` is distinguished from a function-specific local variable by renaming the local scope variable to `localN`. This explicitly communicates which variable is being utilized within the function.
+
+2. **Explicit Reference and Return:**
+   - By precisely defining which variable (`localN` instead of `n`, or `result` instead of `n`) is used and returned, clarity in code execution is improved. The functions in the revised code snippet make clear distinctions between state and local variables, which reduces the possibility of logical errors and ensures that the functions operate as intended.
+
+3. **Best Practices:**
+   - The code now follows best practices by using descriptive names and avoiding overlapping identifiers. This approach prevents future developers working with the contract from making errors due to assumptions about variable references.
