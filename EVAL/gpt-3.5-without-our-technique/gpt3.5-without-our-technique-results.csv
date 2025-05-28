@@ -1,0 +1,53 @@
+file_name,,classified_vulnerability,True_Label
+integer_overflow_minimal.sol,Arithmetic Underflow,arithmetic,arithmetic
+integer_overflow_mul.sol,Arithmetic Overflow,arithmetic,arithmetic
+integer_overflow_multitx_onefunc_feasible.sol,Arithmetic Underflow,arithmetic,arithmetic
+integer_overflow_multitx_multifunc_feasible.sol,Arithmetic Underflow,arithmetic,arithmetic
+BECToken.sol,Multiple Inheritance Conflict,OTHER,arithmetic
+token.sol,Insecure storage management,OTHER,arithmetic
+tokensalechallenge.sol,Arithmetic Overflow,arithmetic,arithmetic
+integer_overflow_mapping_sym_1.sol,Arithmetic Underflow,arithmetic,arithmetic
+timelock.sol,Unchecked External Calls,OTHER,arithmetic
+overflow_single_tx.sol,Arithmetic Overflow,arithmetic,arithmetic
+integer_overflow_benign_1.sol,Arithmetic Underflow,arithmetic,arithmetic
+integer_overflow_add.sol,Arithmetic Overflow,arithmetic,arithmetic
+insecure_transfer.sol,Arithmetic Overflow,arithmetic,arithmetic
+integer_overflow_1.sol,Integer Overflow,arithmetic,arithmetic
+overflow_simple_add.sol,Arithmetic Overflow,arithmetic,arithmetic
+0x23a91059fdc9579a9fbd0edc5f2ea0bfdb70deb4.sol,Assignment Operator Misuse,OTHER,reentrancy
+0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol,Incorrect assignment operation,OTHER,reentrancy
+0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol,Incorrect Operator,OTHER,reentrancy
+0xf015c35649c82f5467c9c74b7f28ee67665aad68.sol,Incorrect Assignment Operation,OTHER,reentrancy
+0x8c7777c45481dba411450c228cb692ac3d550344.sol,Incorrect Use of Comparison Operator,OTHER,reentrancy
+reentrancy_insecure.sol,REENTRANCY,reentrancy,reentrancy
+0xaae1f51cf3339f18b6d3f3bdc75a5facd744b0b8.sol,Incorrect Use of Comparison Operator,OTHER,reentrancy
+0x7541b76cb60f4c60af330c208b0623b7f54bf615.sol,Logical Error,OTHER,reentrancy
+0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol,Multiple Inheritance Ambiguity,OTHER,reentrancy
+0x7b368c4e805c3870b6c49a3f1f49f69af8662cf3.sol,Incorrect Assignment Operations,OTHER,reentrancy
+0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol,Incorrect Use of Assignment Operators,OTHER,reentrancy
+reentrancy_cross_function.sol,Reentrancy,reentrancy,reentrancy
+0xbaf51e761510c1a11bf48dd87c0307ac8a8c8a4f.sol,Logic Error,OTHER,reentrancy
+0xb5e1b1ee15c6fa0e48fce100125569d430f1bd12.sol,Incorrect Use of Operators,OTHER,reentrancy
+0xcead721ef5b11f1a7b530171aab69b16c5e66b6e.sol,Incorrect usage of comparison operators causing unintended state modification,OTHER,reentrancy
+0xb93430ce38ac4a6bb47fb1fc085ea669353fd89e.sol,Assignment Operator Misuse,OTHER,reentrancy
+reentrancy_bonus.sol,Reentrancy,reentrancy,reentrancy
+modifier_reentrancy.sol,Reentrancy,reentrancy,reentrancy
+0x561eac93c92360949ab1f1403323e6db345cbf31.sol,Incorrect assignment operator usage,OTHER,reentrancy
+0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol,Reentrancy,reentrancy,reentrancy
+0x01f8c4e3fa3edeb29e514cba738d87ce8c091d3f.sol,Incorrect assignment operator misused as a comparison operator,OTHER,reentrancy
+0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol,Assignment Operator Misuse,OTHER,reentrancy
+reentrancy_simple.sol,REENTRANCY,reentrancy,reentrancy
+simple_dao.sol,Reentrancy,reentrancy,reentrancy
+reentrance.sol,Reentrancy,reentrancy,reentrancy
+reentrancy_dao.sol,Reentrancy,OTHER,reentrancy
+0x941d225236464a25eb18076df7da6a91d0f95e9e.sol,Incorrect use of comparison operators,OTHER,reentrancy
+etherstore.sol,Incorrect Use of Comparison Operators,OTHER,reentrancy
+0x4e73b32ed6c35f570686b89848e5f39f20ecc106.sol,Intended assignment using comparison operator (`==`) instead of assignment operator (`=`),OTHER,reentrancy
+spank_chain_payment.sol,Logical Error,OTHER,reentrancy
+etherbank.sol,REENTRANCY,reentrancy,reentrancy
+auction.sol,Denial of Service,dos,dos
+dos_simple.sol,DENIAL_OF_SERVICE,dos,dos
+dos_address.sol,Denial of Service (DoS),dos,dos
+dos_number.sol,Denial of Service (DoS),dos,dos
+list_dos.sol,Denial of Service (DoS),dos,dos
+send_loop.sol,Denial of Service (DoS),dos,dos
